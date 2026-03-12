@@ -1,5 +1,6 @@
-var EmpleadoVentas = /** @class */ (function () {
-    function EmpleadoVentas(nombre, apellidos, correo, nacimiento, unidadVenta, zonaGeografica) {
+"use strict";
+class EmpleadoVentas {
+    constructor(nombre, apellidos, correo, nacimiento, unidadVenta, zonaGeografica) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.nacimiento = nacimiento;
@@ -7,43 +8,42 @@ var EmpleadoVentas = /** @class */ (function () {
         this.setUnidadVenta(unidadVenta);
         this.setZonaGeografica(zonaGeografica);
     }
-    EmpleadoVentas.prototype.getNombre = function () {
+    getNombre() {
         return this.nombre;
-    };
-    EmpleadoVentas.prototype.getApellidos = function () {
+    }
+    getApellidos() {
         return this.apellidos;
-    };
-    EmpleadoVentas.prototype.setCorreo = function (minus) {
+    }
+    setCorreo(minus) {
         this.correo = minus.trim().toLowerCase();
-    };
-    EmpleadoVentas.prototype.getCorreo = function () {
+    }
+    getCorreo() {
         return this.correo;
-    };
-    EmpleadoVentas.prototype.getNacimiento = function () {
+    }
+    getNacimiento() {
         return this.nacimiento;
-    };
-    EmpleadoVentas.prototype.setUnidadVenta = function (minus) {
+    }
+    setUnidadVenta(minus) {
         this.unidadVenta = minus.trim().toLowerCase();
-    };
-    EmpleadoVentas.prototype.getUnidadVenta = function () {
+    }
+    getUnidadVenta() {
         return this.unidadVenta;
-    };
-    EmpleadoVentas.prototype.setZonaGeografica = function (minus) {
+    }
+    setZonaGeografica(minus) {
         this.zonaGeografica = minus.trim().toLowerCase();
-    };
-    EmpleadoVentas.prototype.getZonaGeografica = function () {
+    }
+    getZonaGeografica() {
         return this.zonaGeografica;
-    };
-    return EmpleadoVentas;
-}());
+    }
+}
 function addEmployee() {
-    var employeeName = document.getElementById('name').value;
-    var surname = document.getElementById('surname').value;
-    var email = document.getElementById('email').value;
-    var birthDate = document.getElementById('birthDate').value;
-    var sdUnit = document.getElementById('sdUnit').value;
-    var area = document.getElementById('area').value;
-    var errores = [];
+    let employeeName = document.getElementById('name').value;
+    let surname = document.getElementById('surname').value;
+    let email = document.getElementById('email').value;
+    let birthDate = document.getElementById('birthDate').value;
+    let sdUnit = document.getElementById('sdUnit').value;
+    let area = document.getElementById('area').value;
+    const errores = [];
     if (!employeeName) {
         errores.push("Falta nombre.");
     }
@@ -59,15 +59,15 @@ function addEmployee() {
     if (!sdUnit) {
         errores.push("Falta unidad de venta.");
     }
-    var zonas = ["norte", "sur", "este", "oeste"];
+    const zonas = ["norte", "sur", "este", "oeste"];
     if (!zonas.includes(area.toLowerCase())) {
         errores.push("Falta zona geográfica / zona no válida.");
     }
     if (errores.length > 0) {
         console.error("Errores en el formulario:");
-        errores.forEach(function (e) { return console.error(e); });
+        errores.forEach(e => console.error(e));
         return;
     }
-    var nuevoEmpleadoVentas = new EmpleadoVentas(employeeName, surname, email, birthDate, sdUnit, area);
+    const nuevoEmpleadoVentas = new EmpleadoVentas(employeeName, surname, email, birthDate, sdUnit, area);
     console.log("Nuevo empleado creado con éxito:", nuevoEmpleadoVentas);
 }
