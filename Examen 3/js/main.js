@@ -60,7 +60,7 @@ function addEmployee() {
         errores.push("Falta unidad de venta.");
     }
     const zonas = ["norte", "sur", "este", "oeste"];
-    if (!zonas.includes(area.toLowerCase())) {
+    if (!zonas.includes(area.trim().toLowerCase())) {
         errores.push("Falta zona geográfica / zona no válida.");
     }
     if (errores.length > 0) {
